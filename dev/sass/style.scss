@@ -34,11 +34,13 @@ body {
   background-color: lighten($greyColor, 7);
   padding-top: $headerHeight + $freeSpace;
   background-color: $mainBackground;
+  font-family: 'Roboto', sans-serif !important;
 }
 
 @import 'header';
 @import 'main';
 @import 'footer';
+@import './media';
 @import 'components/post';
 @import 'components/auth';
 @import 'components/comments';

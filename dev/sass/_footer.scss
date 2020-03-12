@@ -35,7 +35,7 @@
   width: 25px;
 }
 .rest-1 p {
-  margin-left:10px; 
+  margin-left:20px; 
 }
 .social{
   display: flex;
@@ -49,9 +49,7 @@
 
 footer{
   margin-top: 80px;
-  background: url('../img/cashback-section-bg.png') repeat-x;
-  background-size: 1940px 569px;
-  background-position: top;
+  background: url('../img/cashback-section-bg.png') fixed repeat-x;
   width: 100%;
   color: $whiteColor;
 }

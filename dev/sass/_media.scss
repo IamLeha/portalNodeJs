@@ -1,0 +1,28 @@
+@media screen and (max-width: 330px) {
+
+}
+
+@media screen and (max-width: 576) {
+    .top-footer{
+        flex-wrap: wrap;
+    }
+    .social{
+        display: flex;
+        flex-direction: row;
+        margin-top: 20px;
+    }
+    footer{
+        background: url('../img/cashback-section-bg.png')  repeat-x;
+    }
+}
+@media screen and (max-width: 768px) {
+    .right-about{margin-left: 25px;}
+}
+
+@media screen and (max-width: 900px) {
+    .top-footer{
+        display: flex;
+        flex-direction: column;
+        padding: 4% 0;
+    }
+}

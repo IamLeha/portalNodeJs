@@ -56,6 +56,27 @@ $(function() {
     });
   });
 
+  // delete
+  /*$('.cross-icon').on('click', function(e) {
+    e.preventDefault();
+    removeErrors();
+
+    var data = {
+      postId: $('.cross-icon').data('id')
+    };
+  
+      $.ajax({
+      type: 'POST',
+      data: JSON.stringify(data),
+      contentType: 'application/json',
+      url: `/post/delete/${data.postId}`, 
+    }).done(function(data) {
+      console.log(data)
+      $(location).attr('href', '/post/detele/' + data.postId);
+    })
+
+  })*/
+
   // upload
   $('#file').on('change', function() {
     // e.preventDefault();

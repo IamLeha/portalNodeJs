@@ -35,6 +35,27 @@ router.get('/edit/:id', async (req, res, next) => {
   }
 });
 
+router.get('/delete/:id', async (req, res) => { //'/delete/:id'
+  //const { userId, userLogin} = req.session;
+  const id = req.params.id.trim().replace(/ +(?= )/g, '');
+
+  const post = await models.Post.findById(id)
+  if (post) {
+    models.Post.remove(post, (err, item) => {
+      if (err) {
+        res.send({
+          'error': 'An error has occurred'
+        });
+      } else {
+        res.redirect('/');
+      }
+    });
+  }
+
+  console.log(post)
+});
+
+
 // GET for add
 router.get('/add', async (req, res) => {
   const userId = req.session.userId;
@@ -112,20 +133,18 @@ router.post('/add', async (req, res) => {
       });
     } else {
       try {
-        const post = await models.Post.findOneAndUpdate(
-          {
-            _id: postId,
-            owner: userId
-          },
-          {
-            title,
-            body,
-            url,
-            owner: userId,
-            status: isDraft ? 'draft' : 'published'
-          },
-          { new: true }
-        );
+        const post = await models.Post.findOneAndUpdate({
+          _id: postId,
+          owner: userId
+        }, {
+          title,
+          body,
+          url,
+          owner: userId,
+          status: isDraft ? 'draft' : 'published'
+        }, {
+          new: true
+        });
 
         // console.log(post);
 

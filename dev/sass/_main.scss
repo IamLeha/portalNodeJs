@@ -28,9 +28,9 @@
         position: relative;
         display: flex;
         flex-direction: column;
+        margin-bottom: $freeSpace;
   
         .box {
-          margin-bottom: $freeSpace;
           width: 100%;
           min-height: 100px;
           border: 1px solid $greyColor;
@@ -43,6 +43,16 @@
               padding: 2px 0 2px;
             }
           }
+        }
+
+        .advertising{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 20px;
+          text-transform: uppercase;
+          color: $primaryColor;
+          margin-top: $freeSpace;
         }
       }
   
@@ -57,10 +67,10 @@
         .sidebar {
           flex-direction: row;
           justify-content: space-between;
-          align-items: flex-start;
+          align-items: stretch;
   
-          .box {
-            margin-right: $freeSpace;
+          .advertising{
+            margin-left: $freeSpace;
           }
         }
       }

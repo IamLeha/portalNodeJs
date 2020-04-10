@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-$(function() {
+$(function () {
   // remove errors
   function removeErrors() {
     $('form.login p.error, form.register p.error').remove();
@@ -8,7 +8,7 @@ $(function() {
 
   // toggle
   var flag = true;
-  $('.switch-button').on('click', function(e) {
+  $('.switch-button').on('click', function (e) {
     e.preventDefault();
 
     $('input').val('');
@@ -25,13 +25,24 @@ $(function() {
     }
   });
 
+  let navbar  = document.querySelector('.navbar');
+  let navBurger = document.querySelector('.nav-burger');
+  let checkboxForBurger = document.querySelector('.checkboxBurger');
+  navBurger.addEventListener('click', (e) => {
+    if (checkboxForBurger.checked) {
+      navbar.style.left = "0px";
+    } else {
+      navbar.style.left = "-600px";
+    }
+  })
+
   // clear
-  $('form.login input, form.register input').on('focus', function() {
+  $('form.login input, form.register input').on('focus', function () {
     removeErrors();
   });
 
   // register
-  $('.register-button').on('click', function(e) {
+  $('.register-button').on('click', function (e) {
     e.preventDefault();
     removeErrors();
 
@@ -46,11 +57,11 @@ $(function() {
       data: JSON.stringify(data),
       contentType: 'application/json',
       url: '/api/auth/register'
-    }).done(function(data) {
+    }).done(function (data) {
       if (!data.ok) {
         $('.register h2').after('<p class="error">' + data.error + '</p>');
         if (data.fields) {
-          data.fields.forEach(function(item) {
+          data.fields.forEach(function (item) {
             $('input[name=' + item + ']').addClass('error');
           });
         }
@@ -62,7 +73,7 @@ $(function() {
   });
 
   // login
-  $('.login-button').on('click', function(e) {
+  $('.login-button').on('click', function (e) {
     e.preventDefault();
     removeErrors();
 
@@ -76,11 +87,11 @@ $(function() {
       data: JSON.stringify(data),
       contentType: 'application/json',
       url: '/api/auth/login'
-    }).done(function(data) {
+    }).done(function (data) {
       if (!data.ok) {
         $('.login h2').after('<p class="error">' + data.error + '</p>');
         if (data.fields) {
-          data.fields.forEach(function(item) {
+          data.fields.forEach(function (item) {
             $('input[name=' + item + ']').addClass('error');
           });
         }
